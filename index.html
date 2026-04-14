@@ -9,6 +9,7 @@
 <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
 <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
 <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script src="https://unpkg.com/@formspree/react@2/dist/formspree-react.umd.js"></script>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:'Lora',Georgia,serif;background:#080c12;color:#e8e4dc;overflow-x:hidden}
@@ -107,8 +108,9 @@ const PHOTO = "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAMCAgICAg
 function App() {
   const [modal, setModal] = useState(false);
   const [form, setForm] = useState({naam:"",email:"",type:"kennismaking",bericht:""});
-  const [submitted, setSubmitted] = useState(false);
-  const [sending, setSending] = useState(false);
+  const [fsState, handleFSSubmit] = FormspreeReact.useForm("mnjlnpee");
+  const submitted = fsState.succeeded;
+  const sending = fsState.submitting;
   const scrollTo = (id) => document.getElementById(id)?.scrollIntoView({behavior:"smooth"});
   const handleSubmit = () => { if(!form.naam||!form.email) return; setSubmitted(true); };
 
