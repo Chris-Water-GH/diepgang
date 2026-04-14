@@ -108,6 +108,7 @@ function App() {
   const [modal, setModal] = useState(false);
   const [form, setForm] = useState({naam:"",email:"",type:"kennismaking",bericht:""});
   const [submitted, setSubmitted] = useState(false);
+  const [sending, setSending] = useState(false);
   const scrollTo = (id) => document.getElementById(id)?.scrollIntoView({behavior:"smooth"});
   const handleSubmit = () => { if(!form.naam||!form.email) return; setSubmitted(true); };
 
@@ -299,7 +300,7 @@ function App() {
                   <textarea rows={3} value={form.bericht} onChange={(e)=>setForm({...form,bericht:e.target.value})} placeholder="Waar loop je tegenaan?" style={{resize:"none"}}/>
                 </div>
                 <div className="dg-actions">
-                  <button className="dg-btn-primary" onClick={handleSubmit}>Verstuur aanvraag</button>
+                  <button className="dg-btn-primary" onClick={handleSubmit} disabled={sending}>{sending ? "Versturen..." : "Verstuur aanvraag"}</button>
                   <button className="dg-btn-ghost" onClick={()=>setModal(false)}>Annuleer</button>
                 </div>
               </>
