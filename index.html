@@ -108,7 +108,7 @@ function App() {
   const [modal, setModal] = useState(false);
   const [form, setForm] = useState({naam:"",email:"",type:"kennismaking",bericht:""});
   const [submitted, setSubmitted] = useState(false);
-  const [sending, setSending] = useState(false);
+  const sending = false;
   const scrollTo = (id) => document.getElementById(id)?.scrollIntoView({behavior:"smooth"});
   const handleSubmit = () => { if(!form.naam||!form.email) return; setSubmitted(true); };
 
