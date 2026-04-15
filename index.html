@@ -338,14 +338,14 @@ function showSuccess(naam) {
 function submitWA() {
   const d = getFormData();
   if (!d.naam) return alert('Vul je naam in.');
-  const tekst = 'Interesse: ' + d.type + '\nToelichting: ' + (d.bericht || '-');
+  const tekst = 'Interesse: ' + d.type;
   window.open('https://wa.me/31650736007?text=' + encodeURIComponent(tekst), '_blank');
   showSuccess(d.naam);
 }
 function submitEmail() {
   const d = getFormData();
   if (!d.naam) return alert('Vul je naam in.');
-  const tekst = 'Interesse: ' + d.type + '\nToelichting: ' + (d.bericht || '-') + '\n\nDank je voor jouw aanvraag, ik reageer zo snel mogelijk.\nFijne dag, groet, Chris.';
+  const tekst = 'Interesse: ' + d.type + '\n\nDank je voor jouw aanvraag, ik reageer zo snel mogelijk.\nFijne dag, groet, Chris.';
   const subject = encodeURIComponent('Aanvraag DIEPGANG - ' + d.type);
   window.open('mailto:diepgang@pm.me?subject=' + subject + '&body=' + encodeURIComponent(tekst), '_blank');
   showSuccess(d.naam);
