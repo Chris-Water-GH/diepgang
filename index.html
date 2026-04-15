@@ -110,7 +110,18 @@ function App() {
   const [submitted, setSubmitted] = useState(false);
   const sending = false;
   const scrollTo = (id) => document.getElementById(id)?.scrollIntoView({behavior:"smooth"});
-  const handleSubmit = () => { if(!form.naam||!form.email) return; setSubmitted(true); };
+  const handleSubmit = () => {
+    if(!form.naam||!form.email) return;
+    const msg = encodeURIComponent(
+      "Nieuwe aanvraag DIEPGANG\n\n" +
+      "Naam: " + form.naam + "\n" +
+      "Email: " + form.email + "\n" +
+      "Interesse: " + form.type + "\n" +
+      "Toelichting: " + (form.bericht || "-")
+    );
+    window.open("https://wa.me/31650736007?text=" + msg, "_blank");
+    setSubmitted(true);
+  };
 
   const patterns = [
     "Je voelt boosheid die niet helemaal van jou lijkt, maar je handelt er wel naar",
