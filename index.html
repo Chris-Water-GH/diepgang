@@ -338,7 +338,7 @@ function showSuccess(naam) {
 function submitWA() {
   const d = getFormData();
   if (!d.naam) return alert('Vul je naam in.');
-  const tekst = 'Nieuwe aanvraag DIEPGANG\n\nNaam: ' + d.naam + '\nEmail: ' + d.email + '\nInteresse: ' + d.type + '\nToelichting: ' + (d.bericht || '-');
+  const tekst = 'Interesse: ' + d.type + '\nToelichting: ' + (d.bericht || '-');
   window.open('https://wa.me/31650736007?text=' + encodeURIComponent(tekst), '_blank');
   showSuccess(d.naam);
 }
@@ -347,7 +347,7 @@ function submitEmail() {
   if (!d.naam) return alert('Vul je naam in.');
   const tekst = 'Nieuwe aanvraag DIEPGANG\n\nNaam: ' + d.naam + '\nEmail: ' + d.email + '\nInteresse: ' + d.type + '\nToelichting: ' + (d.bericht || '-');
   const subject = encodeURIComponent('Aanvraag DIEPGANG - ' + d.type);
-  window.open('mailto:diepgang@pm.me?subject=' + subject + '&body=' + encodeURIComponent(tekst + '\n\nMijn e-mailadres: '), '_blank');
+  window.open('mailto:diepgang@pm.me?subject=' + subject + '&body=' + encodeURIComponent(tekst), '_blank');
   showSuccess(d.naam);
 }
 </script>
