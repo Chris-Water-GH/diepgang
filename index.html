@@ -333,12 +333,12 @@ function getFormData() {
 function showSuccess(naam) {
   document.getElementById('modal-form').style.display = 'none';
   document.getElementById('modal-success').style.display = 'block';
-  document.getElementById('success-msg').textContent = 'Ik neem snel contact met je op ' + naam + '.';
+  document.getElementById('success-msg').textContent = 'Ik neem snel contact met je op.';;
 }
 function submitWA() {
   const d = getFormData();
   if (!d.naam) return alert('Vul je naam in.');
-  const tekst = 'Interesse: ' + d.type;
+  const tekst = 'Hi Chris, graag kom ik in contact voor een ' + d.type + '. Groet, ' + d.naam;
   window.open('https://wa.me/31650736007?text=' + encodeURIComponent(tekst), '_blank');
   showSuccess(d.naam);
 }
