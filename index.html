@@ -345,7 +345,7 @@ function submitWA() {
 function submitEmail() {
   const d = getFormData();
   if (!d.naam) return alert('Vul je naam in.');
-  const tekst = 'Nieuwe aanvraag DIEPGANG\n\nNaam: ' + d.naam + '\nEmail: ' + d.email + '\nInteresse: ' + d.type + '\nToelichting: ' + (d.bericht || '-');
+  const tekst = 'Interesse: ' + d.type + '\nToelichting: ' + (d.bericht || '-') + '\n\nDank je voor jouw aanvraag, ik reageer zo snel mogelijk.\nFijne dag, groet, Chris.';
   const subject = encodeURIComponent('Aanvraag DIEPGANG - ' + d.type);
   window.open('mailto:diepgang@pm.me?subject=' + subject + '&body=' + encodeURIComponent(tekst), '_blank');
   showSuccess(d.naam);
